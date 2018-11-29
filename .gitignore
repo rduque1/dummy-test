@@ -1,0 +1,4 @@
+.nextflow*
+work/
+ALL_1000G_phase1integrated_v3_impute
+node_modules
