@@ -30,6 +30,7 @@ println uniqueID
 println params.rawdata
 
 println config
+println "Cmd line: $workflow.configFiles"
 
 rawFileChannel = Channel.fromPath(params.rawdata)
 
