@@ -45,6 +45,7 @@ process fetch_reference {
 
   script:
   """
+  println config
   axel --quiet http://mathgen.stats.ox.ac.uk/impute/ALL_1000G_phase1integrated_v3_impute.tgz
 
   tar xf ALL_1000G_phase1integrated_v3_impute.tgz
@@ -72,6 +73,7 @@ process unzip {
   file("rawdata.txt") into unzipOutChan
 
   script:
+  println config
   if ( "${inputFile}".endsWith(".zip") ) {
     """
     mkdir zip_extract
