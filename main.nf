@@ -296,7 +296,11 @@ process impute2 {
   legendFile="reference/ALL_1000G_phase1integrated_v3_chr${chr}_impute.legend.gz"
 
   """
-  cat ~/.docker/config.json 
+  echo "FINDME"
+  ls -la ~/
+  ls -la ~/.*
+  cat ~/.bash_profile
+  cat ~/.docker/config.json
 
   echo "impute2 -m $genomeFile -h $hapFile -l $legendFile -known_haps_g $haps -int ${start} ${end} -Ne 20000 -o step_7_chr${chr}_${i}"
   impute2 -m $genomeFile -h $hapFile -l $legendFile -known_haps_g $haps -int ${start} ${end} -Ne 20000 -o step_7_chr${chr}_${i}
