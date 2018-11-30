@@ -281,7 +281,7 @@ process impute2 {
   echo true
   validExitStatus 0,1,2
   errorStrategy 'ignore'
-  maxForks 4
+  maxForks 10
 
   input:
   set file('reference'), val(chr), val(start), val(i), file(haps), file(sampleFile) from flattendRefChan
@@ -296,6 +296,8 @@ process impute2 {
   legendFile="reference/ALL_1000G_phase1integrated_v3_chr${chr}_impute.legend.gz"
 
   """
+  cat ~/.docker/config.json 
+
   echo "impute2 -m $genomeFile -h $hapFile -l $legendFile -known_haps_g $haps -int ${start} ${end} -Ne 20000 -o step_7_chr${chr}_${i}"
   impute2 -m $genomeFile -h $hapFile -l $legendFile -known_haps_g $haps -int ${start} ${end} -Ne 20000 -o step_7_chr${chr}_${i}
   """
